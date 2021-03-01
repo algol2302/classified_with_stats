@@ -1,0 +1,12 @@
+docker
+data
+media
+
+.venv/
+.env/
+venv/
+ENV/
+
+static_files
+frontend/node_modules
+frontend/static

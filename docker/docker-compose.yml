@@ -1,0 +1,20 @@
+version: '3.0'
+
+services:
+  db:
+    image: postgres:13-alpine
+    container_name: classified_db
+    volumes:
+      - "./data/db:/var/lib/postgresql/data"
+    env_file:
+      - ./.env
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:6-alpine
+    container_name: classified_redis
+    env_file:
+      - ./.env
+    ports:
+      - 6379:6379
