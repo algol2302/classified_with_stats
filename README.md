@@ -12,7 +12,7 @@
    ```
    env `cat ./docker/.env` python manage.py migrate
    env `cat ./docker/.env` python manage.py createsuperuser`
-   env `cat ./docker/.env\` python manage.py runserver
+   env `cat ./docker/.env` python manage.py runserver
    ```
 4. Необходимо добавить пользователя: Anonymous
 
