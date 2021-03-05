@@ -1,25 +1,19 @@
 # To run
 
-virtualenv --python=/usr/bin/python3 .venv
+1.
+    ```
+    poetry init
+    poetry install
+    ```
 
-source .venv/bin/activate
+2. `./docker/docker-compose up -d`
 
-pip install -r requirements.txt
+3. 
+   ```
+   env `cat ./docker/.env` python manage.py migrate
+   env `cat ./docker/.env` python manage.py createsuperuser`
+   env `cat ./docker/.env\` python manage.py runserver
+   ```
+4. Необходимо добавить пользователя: Anonymous
 
-./docker/docker-compose up -d
-
-env \`cat ./docker/.env\` python manage.py migrate
-
-env \`cat ./docker/.env\` python manage.py createsuperuser
-
-env \`cat ./docker/.env\` python manage.py runserver
-
-Необходимо добавить пользователя: Anonymous
-
-api: http://127.0.0.1:8000/api/v1/
-
-frontend только начал делать, он не работает пока
-
-В базе данных есть таблицы Просмотры (Объявлений) и Хиты (каждого объявления)
-
-(git test)
+5. api: http://127.0.0.1:8000/api/v1/
