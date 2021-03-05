@@ -8,18 +8,20 @@ from . import City
 
 
 class Advert(models.Model):
-    header = models.CharField(verbose_name=_('Заголовок'))
+    header = models.CharField()
 
-    description = models.TextField(verbose_name=_('Описание'))
+    description = models.TextField()
 
     city = models.ForeignKey(
-        City, verbose_name=_('Город'),
-        on_delete=models.CASCADE
+        City,
+        on_delete=models.CASCADE,
+        related_name='cities'
     )
 
     owner = models.ForeignKey(
-        User, verbose_name=_('Владелец'),
-        on_delete=models.CASCADE
+        User,
+        on_delete=models.CASCADE,
+        related_name='owners'
     )
 
     created_at = models.DateTimeField(
@@ -31,8 +33,8 @@ class Advert(models.Model):
     )
 
     class Meta:
-        verbose_name = _('Объявление')
-        verbose_name_plural = _('Объявления')
+        verbose_name = _('Advert')
+        verbose_name_plural = _('Adverts')
 
     def __str__(self):
         return "{}".format(self.header)

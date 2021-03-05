@@ -4,11 +4,11 @@ from django.core.cache import caches
 
 
 class City(models.Model):
-    name = models.TextField(verbose_name=_('Название города'))
+    name = models.TextField()
 
     class Meta:
-        verbose_name = _('Город')
-        verbose_name_plural = _('Города')
+        verbose_name = _('City')
+        verbose_name_plural = _('Cities')
 
     def __str__(self):
         return "{}".format(self.name)

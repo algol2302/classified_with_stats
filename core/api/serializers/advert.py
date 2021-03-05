@@ -20,4 +20,3 @@ class AdvertSerializer(ModelSerializer):
             'id', 'city', 
             'owner',
         )
-    

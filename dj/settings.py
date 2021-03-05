@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     #
     'rest_framework',
-    'rest_framework_swagger',
     # 
     'core',
 ]
@@ -67,7 +66,7 @@ WSGI_APPLICATION = 'dj.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -92,7 +91,7 @@ REST_FRAMEWORK = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -150,33 +149,33 @@ REDIS_PORT = int(
 
 LOCATION_CACHE = f'{REDIS_HOST}:{REDIS_PORT}'
 
-BACKEND_CACHE = 'redis_cache.cache.RedisCache'
-
-CACHES = {
-    'default': {
-        'BACKEND': BACKEND_CACHE,
-        'LOCATION': LOCATION_CACHE,
-        'OPTIONS': {
-            'DB': 1,
-        },
-    },
-    'city': {
-        'BACKEND': BACKEND_CACHE,
-        'LOCATION': LOCATION_CACHE,
-        'TIMEOUT': 60 * 60 * 24,
-        'OPTIONS': {
-            'DB': 2,
-        },
-    },
-    'advert': {
-        'BACKEND': BACKEND_CACHE,
-        'LOCATION': LOCATION_CACHE,
-        'TIMEOUT': 60 * 60 * 1,
-        'OPTIONS': {
-            'DB': 3,
-        },
-    }
-}
+# BACKEND_CACHE = 'redis_cache.cache.RedisCache'
+#
+# CACHES = {
+#     'default': {
+#         'BACKEND': BACKEND_CACHE,
+#         'LOCATION': LOCATION_CACHE,
+#         'OPTIONS': {
+#             'DB': 1,
+#         },
+#     },
+#     'city': {
+#         'BACKEND': BACKEND_CACHE,
+#         'LOCATION': LOCATION_CACHE,
+#         'TIMEOUT': 60 * 60 * 24,
+#         'OPTIONS': {
+#             'DB': 2,
+#         },
+#     },
+#     'advert': {
+#         'BACKEND': BACKEND_CACHE,
+#         'LOCATION': LOCATION_CACHE,
+#         'TIMEOUT': 60 * 60 * 1,
+#         'OPTIONS': {
+#             'DB': 3,
+#         },
+#     }
+# }
 
 # 
 DEBUG_TOOLBAR = True
