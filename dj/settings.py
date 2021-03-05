@@ -132,7 +132,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'frontend', 'static'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -195,4 +194,5 @@ if DEBUG_TOOLBAR:
     INTERNAL_IPS = ['127.0.0.1']
 
 # 
-HITCOUNT_HITS_PER_IP_LIMIT = 1
+AUTH_USER_MODEL = 'core.CustomUser'
+

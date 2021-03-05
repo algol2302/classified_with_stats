@@ -13,8 +13,8 @@ class CityAPI(ModelViewSet):
     queryset = City.objects.get_queryset()
     serializer_class = CitySerializer
 
-    @method_decorator(
-        cache_page(settings.CACHES['city']['TIMEOUT'], cache='city')
-    )
+    # @method_decorator(
+    #     cache_page(settings.CACHES['city']['TIMEOUT'], cache='city')
+    # )
     def list(self, request, format=None):
         return super(CityAPI, self).list(self, request, format=None)

@@ -6,8 +6,6 @@ from django.utils.decorators import method_decorator
 from django.conf import settings
 from django.core.cache import caches
 
-from hitcount.models import Hit, HitCount, HitCountMixin
-
 from core.models import Advert
 from core.api.serializers import AdvertSerializer
 
@@ -23,9 +21,9 @@ class AdvertAPI(ModelViewSet):
         
         return queryset
 
-    @method_decorator(
-        cache_page(settings.CACHES['advert']['TIMEOUT'], cache='advert')
-    )
+    # @method_decorator(
+    #     cache_page(settings.CACHES['advert']['TIMEOUT'], cache='advert')
+    # )
     def list(self, request, format=None):
         return super(AdvertAPI, self).list(self, request, format=None)
 
@@ -38,15 +36,15 @@ class AdvertAPI(ModelViewSet):
         except:
             user = User.objects.get(username='Anonymous')
 
-        hit, created = Hit.objects.get_or_create(
-            ip=ip,
-            user=user,
-            hitcount=obj.hit_count,
-            session='sss',
-            user_agent='api',
-        )
+        # hit, created = Hit.objects.get_or_create(
+        #     ip=ip,
+        #     user=user,
+        #     hitcount=obj.hit_count,
+        #     session='sss',
+        #     user_agent='api',
+        # )
 
-        if created:
-            caches['advert'].clear()
-        
+        # if created:
+        #     caches['advert'].clear()
+        #
         return super(AdvertAPI, self).retrieve(self, request, pk=None)

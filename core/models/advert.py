@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
 from django.core.cache import caches
 
-
 from . import City
+from .user import CustomUser
 
 
 class Advert(models.Model):
-    header = models.CharField()
+    header = models.CharField(max_length=255, blank=False)
 
-    description = models.TextField()
+    description = models.TextField(blank=False)
 
     city = models.ForeignKey(
         City,
@@ -19,7 +18,7 @@ class Advert(models.Model):
     )
 
     owner = models.ForeignKey(
-        User,
+        CustomUser,
         on_delete=models.CASCADE,
         related_name='owners'
     )

@@ -11,8 +11,8 @@ from core.api.viewsets import AdvertAPI, CityAPI
 router = routers.DefaultRouter()
 schema_view = get_schema_view(title='Pastebin API')
 
-router.register('advert', AdvertAPI, base_name='advert_request')
-router.register('city', CityAPI, base_name='city_request')
+router.register('advert', AdvertAPI, basename='advert_request')
+router.register('city', CityAPI, basename='city_request')
 
 urlpatterns = [
     # api
