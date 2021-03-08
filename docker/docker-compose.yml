@@ -5,7 +5,7 @@ services:
     image: postgres:13-alpine
     container_name: classified_db
     volumes:
-      - "./data/db:/var/lib/postgresql/data"
+      - ./data/db:/var/lib/postgresql/data
     env_file:
       - ./.env
     ports:
@@ -18,3 +18,14 @@ services:
       - ./.env
     ports:
       - 6379:6379
+
+  click_db:
+    image: yandex/clickhouse-server:20-alpine
+    volumes:
+      - ./data/click_db:/var/lib/clickhouse
+    env_file:
+      - ./.env
+    ports:
+      - 8123:8123
+      - 9000:9000
+
