@@ -77,6 +77,8 @@ DATABASES = {
         'HOST': os.environ.get('POSTGRES_HOST', '127.0.0.1'),
         'PORT': os.environ.get('POSTGRES_PORT', 5432)
     }
+    # about using infi.clickhouse_orm in django:
+    # https://github.com/Infinidat/infi.clickhouse_orm/issues/124
 }
 
 # 
