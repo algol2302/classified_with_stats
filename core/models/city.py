@@ -13,6 +13,6 @@ class City(models.Model):
     def __str__(self):
         return "{}".format(self.name)
     
-    def save(self, *args, **kwargs):
-        caches['city'].clear()
-        super(City, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     caches['city'].clear()
+    #     super(City, self).save(*args, **kwargs)

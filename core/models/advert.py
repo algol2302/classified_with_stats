@@ -38,9 +38,9 @@ class Advert(models.Model):
     def __str__(self):
         return "{}".format(self.header)
 
-    def save(self, *args, **kwargs):
-        caches['advert'].clear()
-        super(Advert, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     caches['advert'].clear()
+    #     super(Advert, self).save(*args, **kwargs)
 
     @property
     def click_count(self):
