@@ -32,8 +32,8 @@ class AdvertAPI(ModelViewSet):
         return super(AdvertAPI, self).list(self, request, format=None)
 
     def retrieve(self, request, pk=None):
+        # TODO move all logic to service layers from views
         obj = self.get_object()
-
         # TODO add IP to Clicks
         # ip = request.META['REMOTE_ADDR']
         
