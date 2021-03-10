@@ -1,5 +1,6 @@
 from infi.clickhouse_orm import (
-    Model, DateTimeField, UInt32Field, Memory, F, UUIDField
+    Model, DateTimeField, UInt32Field, MergeTree, F, UUIDField,
+    IPv4Field
 )
 
 
@@ -8,6 +9,8 @@ class Clicks(Model):
     advert_owner_id = UUIDField()
     advert_city_id = UInt32Field()
     visitor_id = UUIDField()
+    visitor_ip = IPv4Field()
     created_at = DateTimeField(default=F.now())
 
-    engine = Memory()
+    # TODO choose correct params
+    engine = MergeTree(date_col='Clicks', order_by=(created_at, advert_id))
