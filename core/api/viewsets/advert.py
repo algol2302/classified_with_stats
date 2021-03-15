@@ -1,8 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from core.models import Advert
 from core.api.serializers import AdvertSerializer
-
+from core.models import Advert
 from core.services import click_handler
 
 

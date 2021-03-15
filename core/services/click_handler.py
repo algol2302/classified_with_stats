@@ -1,6 +1,7 @@
+from django.http import HttpRequest
+
 from clicks.models import Clicks
 from core.models import CustomUser, Advert
-from django.http import HttpRequest
 
 
 def click_handler(advert: Advert, request: HttpRequest) -> None:
