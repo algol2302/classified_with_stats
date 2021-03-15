@@ -13,4 +13,7 @@ class Clicks(Model):
     created_at = DateTimeField(default=F.now())
 
     # TODO choose correct params
-    engine = MergeTree(date_col='Clicks', order_by=(created_at, advert_id))
+    engine = MergeTree(
+        date_col='created_at',
+        order_by=(created_at, advert_id, visitor_ip)
+    )

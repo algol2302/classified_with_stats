@@ -11,7 +11,7 @@ from core.models import Advert, CustomUser
 from core.api.serializers import AdvertSerializer
 from clicks.models import Clicks
 
-db = Database('demo')
+db = Database('default')
 
 
 class AdvertAPI(ModelViewSet):
@@ -35,7 +35,7 @@ class AdvertAPI(ModelViewSet):
         # TODO move all logic to service layers from views
         obj = self.get_object()
         # TODO add IP to Clicks
-        # ip = request.META['REMOTE_ADDR']
+        ip = request.META['REMOTE_ADDR']
         
         try:
             user = CustomUser.objects.get(id=self.request.user)
@@ -44,7 +44,8 @@ class AdvertAPI(ModelViewSet):
 
         db.insert([
             Clicks(
-                advert_id=obj.id, advert_owner_id=obj.owner_id, advert_city_id=obj.city_id, visitor_id=user.id
+                advert_id=obj.id, advert_owner_id=obj.owner_id, advert_city_id=obj.city_id,
+                visitor_id=user.id, visitor_ip=ip
             )
         ])
 
