@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer, CharField
 
-from core.models import Advert, City
+from core.models import Advert
 
 
 class AdvertSerializer(ModelSerializer):
