@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 
-from core.api.viewsets import AdvertAPI, CityAPI
+from core.api.viewsets import AdvertAPI, CityAPI, ClickStatsAPI
 
 
 router = routers.DefaultRouter()
@@ -13,9 +13,11 @@ schema_view = get_schema_view(title='Pastebin API')
 
 router.register('advert', AdvertAPI, basename='advert_request')
 router.register('city', CityAPI, basename='city_request')
+# router.register('click_stats', ClickStatsAPI, basename='click_stats_request')
 
 urlpatterns = [
     # api
     path('', include(router.urls)),
+    path('click_stats/', ClickStatsAPI.as_view()),
     path('schema/', login_required(schema_view)),
 ]
