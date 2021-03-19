@@ -18,10 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index
-
 urlpatterns = [
-    path('', index),
     path('admin/', admin.site.urls),
     path('api/v1/', include('core.urls')),
     path('api-auth/', include('rest_framework.urls')),
