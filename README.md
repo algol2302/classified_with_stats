@@ -14,6 +14,6 @@
    env `cat ./docker/.env` python manage.py createsuperuser`
    env `cat ./docker/.env` python manage.py runserver
    ```
-4. Необходимо добавить пользователя: `Anonymous`
+4. Необходимо добавить пользователя: `anonymous@anonymous.an`
 
 5. api: http://127.0.0.1:8000/api/v1/
