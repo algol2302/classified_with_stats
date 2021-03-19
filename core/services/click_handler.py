@@ -12,7 +12,9 @@ def click_handler(advert: Advert, request: HttpRequest) -> None:
     except CustomUser.DoesNotExist:
         user = CustomUser.objects.get(email='anonymous@anonymous.an')
 
-    # TODO click creation can move to message queue
+    # TODO it should move a click creation to message queue?
+    #  What's a best practice for this?
+
     Clicks.create_instance(
         advert_id=advert.id, advert_owner_id=advert.owner_id,
         advert_city_id=advert.city_id, visitor_id=user.id,
