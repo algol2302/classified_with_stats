@@ -13,11 +13,10 @@ schema_view = get_schema_view(title='Pastebin API')
 
 router.register('advert', AdvertAPI, basename='advert_request')
 router.register('city', CityAPI, basename='city_request')
-# router.register('click_stats', ClickStatsAPI, basename='click_stats_request')
+router.register('click_stats', ClickStatsAPI, basename='click_stats_request')
 
 urlpatterns = [
     # api
     path('', include(router.urls)),
-    path('click_stats/', ClickStatsAPI.as_view()),
     path('schema/', login_required(schema_view)),
 ]
